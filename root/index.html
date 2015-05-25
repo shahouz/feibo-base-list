@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="vqd" />
+  <meta name="keywords" content="Guye" />
+  <meta name="description" content="the list of guye." />
+  <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, initial-scale=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <title>这里是标题</title>
+  <link rel="shortcut icon" href="">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="">
+  <script>
+    //rem
+    (function (doc, window) {
+      var docEl = doc.documentElement, resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            docEl.style.fontSize = (20 * (clientWidth / 320)) > 40 ? 40 + "px" : (20 * (clientWidth / 320)) + 'px';
+          },
+          anime = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
+          function(e){
+            return setTimeout(e,16.67);
+          };
+      if (!doc.addEventListener) return;
+      window.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    // develop
+    var version = location.href.indexOf("?tdev") > 0 ? (1 + Math.round(Math.random() * 9999 - 1)) : '1.1';
+  </script>
+
+  <script>
+    document.write('<link href="statics/css/global.css?v='+version+'" rel="stylesheet" type="text/css" />');
+    document.write('<link href="statics/css/list.css?v='+version+'" rel="stylesheet" type="text/css" />');
+    document.write('<link href="statics/libs/swiper/3.0.7/css/swiper.min.css?v='+version+'" rel="stylesheet" type="text/css" />');
+  </script>
+
+  <!--[if lt IE 9]><script src="http://apps.bdimg.com/libs/html5shiv/r29/html5.min.js"></script><![endif]-->
+</head>
+<body>
+  <div class="loading"><div class="loadingBar"></div></div>
+  <div class="container">
+
+    <!--<a href="javascript:;" class="setAttend"></a>-->
+
+    <!-- Swiper -->
+    <!--
+    <div class="banner">
+      <div class="swiper-container">
+        <div class="swiper-wrapper"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    -->
+    <div class="banner" id="myElement">
+      <div class="bannerScroll clearfix"></div>
+    </div>
+
+    <div class="tabPlan">
+      <a href="javascript:;" class="current mainLink">艺术</a>
+      <a href="javascript:;" class="mainLink">神话</a>
+      <a href="javascript:;" class="mainLink">瞎聊</a>
+      <a href="javascript:;" class="mainLink">广告</a>
+    </div>
+
+    <div class="articleBoxBor clearfix">
+      <div class="aritcleBoxPlan clearfix">
+        <!-- 艺术 -->
+        <div class="articleBox" data-st="open"></div>
+        <!-- 神话 -->
+        <div class="articleBox"></div>
+        <!-- 瞎聊 -->
+        <div class="articleBox"></div>
+        <!-- ad -->
+        <div class="articleBox"></div>
+      </div>
+    </div>
+
+    <!-- ad close -->
+    <div class="articleLoading"><img src="statics/images/loading01.gif" height="20" /></div>
+  </div>
+
+  <script>
+    document.write('<script src="statics/libs/jquery.js?v='+version+'" type="text/javascript">\x3C/script>');
+    document.write('<script src="statics/libs/hammer/hammer.min.js?v='+version+'" type="text/javascript">\x3C/script>');
+    //document.write('<script src="statics/libs/swiper/3.0.7/js/swiper.min.js?v='+version+'" type="text/javascript">\x3C/script>');
+    document.write('<script src="statics/js/global.js?v='+version+'" type="text/javascript">\x3C/script>');
+    document.write('<script src="statics/js/list.js?v='+version+'" type="text/javascript">\x3C/script>');
+  </script>
+  <script>
+    var myElement = document.getElementById('myElement');
+    var mc = new Hammer(myElement);
+    mc.on("swipeleft swiperight tap press", function(ev) {
+
+      if(ev.type == "swipeleft"){
+        currentCate ++;
+        changeCate(currentCate);
+      }else if(ev.type == "swiperight"){
+        currentCate --;
+        changeCate(currentCate);
+      }
+
+        console.log(ev.type +" gesture detected.");
+    });
+  </script>
+  <div class="tongji">放统计代码</div>
+
+</body>
+</html>

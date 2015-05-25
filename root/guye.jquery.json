@@ -1,0 +1,26 @@
+{
+  "name": "guye",
+  "title": "Guye",
+  "description": "the list of guye.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/vqianduan/guye",
+  "author": {
+    "name": "vqd",
+    "email": "vqianduan@hotmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vqianduan/guye.git"
+  },
+  "bugs": "https://github.com/vqianduan/guye/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/vqianduan/guye/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}
